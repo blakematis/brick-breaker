@@ -14,12 +14,14 @@ function create(id, parent, width, height){
         ctx: ctx,
         id: id
     };
-};
+}
 
 function drawRect(ctx, x, y, width, height, color){
+    ctx.save();
     ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
-
+    ctx.rect(x, y, width, height);
+    ctx.fill();
+    ctx.restore();
     return {
         width: width,
         height: height,
@@ -27,7 +29,7 @@ function drawRect(ctx, x, y, width, height, color){
         y: y,
         color: color
     };
-};
+}
 
 function createReportList(wrapperId){
     let list = document.createElement('ul');
@@ -37,6 +39,6 @@ function createReportList(wrapperId){
     canvasWrapper.appendChild(list);
 
     return list.id;
-};
+}
 
 export { create, drawRect, createReportList};

@@ -20,20 +20,28 @@ export default class Brick {
       this.markedForDeletion = true;
     }
   }
-
-  draw(ctx) {
+/**
+ *
+ *
+ * @param {*} ctx
+ * @memberof Brick
+ */
+draw(ctx) {
     ctx.save();
+    ctx.fillStyle = '#AF180D';
+    //ctx.strockStyle = 'black';
     ctx.rect(
         this.position.x,
         this.position.y,
         this.width,
         this.height
     );
-    ctx.fillStyle = '#AF180D';
     ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeSyle = '#510A05';
-    ctx.stroke();
+    /** Need to figure out how to implement stroke without effecting other game objects */
+    //ctx.lineWidth = 2;
+    //ctx.strokeSyle = '#510A05';
+    //ctx.stroke();
+    
     ctx.restore();
   }
 }
